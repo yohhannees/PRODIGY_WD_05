@@ -14,7 +14,7 @@ const WeatherInfo = ({ apiKey, query }) => {
             params: {
               q: query,
               appid: apiKey,
-              units: "metric", // You can change this to 'imperial' for Fahrenheit
+              units: "metric", 
             },
           }
         );
@@ -31,7 +31,7 @@ const WeatherInfo = ({ apiKey, query }) => {
   }, [apiKey, query]);
 
   if (!weatherData) {
-    return null; // Return null if data is not available yet
+    return null; 
   }
 
   return (
