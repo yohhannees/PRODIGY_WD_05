@@ -4,13 +4,13 @@ import WeatherInfo from "./component/WeatherInfo";
 
 const App = () => {
   const unsplashApiKey = "IDnu3i8yDUSiH70Fj7qtIxAkp7yEOL4XeO7IjWfRBuI";
-  const openWeatherApiKey = "a8d503e79f791912910dc535060e0137"; // Replace with your OpenWeather API key
+  const openWeatherApiKey = "a8d503e79f791912910dc535060e0137"; 
 
   const [searchQuery, setSearchQuery] = useState("");
   const [country, setCountry] = useState("");
   const [isSearchClicked, setIsSearchClicked] = useState(false);
-  const [imageUrl, setImageUrl] = useState(""); // State to store the Unsplash image URL
-  const [fadeIn, setFadeIn] = useState(false); // State to control the fade-in effect
+  const [imageUrl, setImageUrl] = useState(""); 
+  const [fadeIn, setFadeIn] = useState(false);
 
   useEffect(() => {
     const fetchImage = async () => {
@@ -19,7 +19,7 @@ const App = () => {
           "https://api.unsplash.com/photos/random",
           {
             params: {
-              query: searchQuery, // Use searchQuery instead of query
+              query: searchQuery, 
             },
             headers: {
               Authorization: `Client-ID ${unsplashApiKey}`,
@@ -28,7 +28,7 @@ const App = () => {
         );
 
         setImageUrl(response.data.urls.regular);
-        setFadeIn(true); // Trigger the fade-in effect
+        setFadeIn(true); 
       } catch (error) {
         console.error("Error fetching image from Unsplash:", error);
       }
