@@ -1,4 +1,5 @@
-import { useState } from "react";
+
+import  { useState } from "react";
 import UnsplashImage from "./component/UnsplashImage";
 import WeatherInfo from "./component/WeatherInfo";
 
@@ -8,9 +9,11 @@ function App() {
 
   const [searchQuery, setSearchQuery] = useState("");
   const [country, setCountry] = useState("");
+  const [isSearchClicked, setIsSearchClicked] = useState(false);
 
   const handleSearch = () => {
     setCountry(searchQuery);
+    setIsSearchClicked(true);
   };
 
   return (
@@ -27,7 +30,10 @@ function App() {
         <button onClick={handleSearch}>Search</button>
       </div>
 
-      <UnsplashImage apiKey={unsplashApiKey} query={searchQuery} />
+      <UnsplashImage
+        apiKey={unsplashApiKey}
+        query={isSearchClicked ? searchQuery : ""}
+      />
 
       {country && <WeatherInfo apiKey={openWeatherApiKey} query={country} />}
     </div>
