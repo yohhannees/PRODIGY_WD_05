@@ -51,9 +51,7 @@ const App = () => {
           fadeIn ? "animate-fade-in" : ""
         }`}
       >
-        <h1 className="text-4xl font-bold mb-4">
-           Weather Info
-        </h1>
+        <h1 className="text-4xl font-bold mb-4">Weather Info</h1>
 
         <div className="flex items-center space-x-2">
           <input
