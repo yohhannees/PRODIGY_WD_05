@@ -52,7 +52,7 @@ const App = () => {
         }`}
       >
         <h1 className="text-4xl font-bold mb-4">
-          Unsplash Image and Weather Info
+           Weather Info
         </h1>
 
         <div className="flex items-center space-x-2">
