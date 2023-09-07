@@ -15,7 +15,7 @@ const App = () => {
   useEffect(() => {
  const fetchImage = async () => {
   try {
-    const modifiedSearchQuery = searchQuery + " famous land mark and infrastracture";
+    const modifiedSearchQuery = searchQuery + " buildings";
 
     const response = await axios.get(
       "https://api.unsplash.com/photos/random",
