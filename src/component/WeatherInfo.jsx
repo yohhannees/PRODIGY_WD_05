@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
+import { Icon } from "semantic-ui-react";
 
 const WeatherInfo = ({ apiKey, query }) => {
   const [weatherData, setWeatherData] = useState(null);
@@ -14,7 +15,7 @@ const WeatherInfo = ({ apiKey, query }) => {
             params: {
               q: query,
               appid: apiKey,
-              units: "metric", 
+              units: "metric",
             },
           }
         );
@@ -31,7 +32,7 @@ const WeatherInfo = ({ apiKey, query }) => {
   }, [apiKey, query]);
 
   if (!weatherData) {
-    return null; 
+    return null;
   }
 
   return (
@@ -40,28 +41,29 @@ const WeatherInfo = ({ apiKey, query }) => {
       <div className="grid grid-cols-2 gap-4">
         <div>
           <p className="text-lg">
-            City: <span className="font-semibold">{weatherData.name}</span>
+            <Icon name="building" /> City:{" "}
+            <span className="font-semibold">{weatherData.name}</span>
           </p>
           <p className="text-lg">
-            Temperature:{" "}
+            <Icon name="thermometer" /> Temperature:{" "}
             <span className="font-semibold">{weatherData.main.temp}°C</span>
           </p>
           <p className="text-lg">
-            Weather Condition:{" "}
+            <Icon name="cloud" /> Weather Condition:{" "}
             <span className="font-semibold">
               {weatherData.weather[0].description}
             </span>
           </p>
           <p className="text-lg">
-            Humidity:{" "}
+            <Icon name="tint" /> Humidity:{" "}
             <span className="font-semibold">{weatherData.main.humidity}%</span>
           </p>
           <p className="text-lg">
-            Wind Speed:{" "}
+            <Icon name=" forward" /> Wind Speed:{" "}
             <span className="font-semibold">{weatherData.wind.speed} m/s</span>
           </p>
           <p className="text-lg">
-            Pressure:{" "}
+            <Icon name="rocket" /> Pressure:{" "}
             <span className="font-semibold">
               {weatherData.main.pressure} hPa
             </span>
@@ -69,25 +71,25 @@ const WeatherInfo = ({ apiKey, query }) => {
         </div>
         <div>
           <p className="text-lg">
-            Visibility:{" "}
+            <Icon name="eye" /> Visibility:{" "}
             <span className="font-semibold">
               {weatherData.visibility} meters
             </span>
           </p>
           <p className="text-lg">
-            Sunrise:{" "}
+            <Icon name="sun " /> Sunrise:{" "}
             <span className="font-semibold">
               {new Date(weatherData.sys.sunrise * 1000).toLocaleTimeString()}
             </span>
           </p>
           <p className="text-lg">
-            Sunset:{" "}
+            <Icon name="sun" /> Sunset:{" "}
             <span className="font-semibold">
               {new Date(weatherData.sys.sunset * 1000).toLocaleTimeString()}
             </span>
           </p>
           <p className="text-lg">
-            Cloudiness:{" "}
+            <Icon name="cloud " /> Cloudiness:{" "}
             <span className="font-semibold">{weatherData.clouds.all}%</span>
           </p>
         </div>

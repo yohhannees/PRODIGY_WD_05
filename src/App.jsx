@@ -13,31 +13,35 @@ const App = () => {
   const [fadeIn, setFadeIn] = useState(false);
 
   useEffect(() => {
-    const fetchImage = async () => {
-      try {
-        const response = await axios.get(
-          "https://api.unsplash.com/photos/random",
-          {
-            params: {
-              query: searchQuery, 
-            },
-            headers: {
-              Authorization: `Client-ID ${unsplashApiKey}`,
-            },
-          }
-        );
+ const fetchImage = async () => {
+  try {
+    // Modify the search query for fetching the image
+    const modifiedSearchQuery = searchQuery + " famous land mark and infrastracture";
 
-        setImageUrl(response.data.urls.regular);
-        setFadeIn(true); 
-      } catch (error) {
-        console.error("Error fetching image from Unsplash:", error);
+    const response = await axios.get(
+      "https://api.unsplash.com/photos/random",
+      {
+        params: {
+          query: modifiedSearchQuery,
+        },
+        headers: {
+          Authorization: `Client-ID ${unsplashApiKey}`,
+        },
       }
-    };
+    );
+
+    setImageUrl(response.data.urls.regular);
+    setFadeIn(true);
+  } catch (error) {
+    console.error("Error fetching image from Unsplash:", error);
+  }
+};
+
 
     if (isSearchClicked) {
       fetchImage();
     }
-  }, [unsplashApiKey, searchQuery, isSearchClicked]);
+  }, [unsplashApiKey, searchQuery,isSearchClicked]);
 
   return (
     <div
