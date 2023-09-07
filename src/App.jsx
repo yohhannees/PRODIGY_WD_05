@@ -15,7 +15,6 @@ const App = () => {
   useEffect(() => {
  const fetchImage = async () => {
   try {
-    // Modify the search query for fetching the image
     const modifiedSearchQuery = searchQuery + " famous land mark and infrastracture";
 
     const response = await axios.get(
